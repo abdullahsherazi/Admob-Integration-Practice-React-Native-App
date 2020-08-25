@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.wscan">
+  package="com.quarantine.qrscanner.whatscan">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -24,7 +24,14 @@
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1548839864157319~3737854596"/>
+            android:value="ca-app-pub-7394513728695348~6386157487"/>
+    
+    <!-- fbads -->
+    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+    <activity
+  android:name="com.facebook.ads.InterstitialAdActivity"
+  android:configChanges="keyboardHidden|orientation" />
+    
     </application>
 
 </manifest>

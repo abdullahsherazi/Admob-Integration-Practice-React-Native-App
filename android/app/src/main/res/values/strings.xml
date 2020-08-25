@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">WScan</string>
+    <string name="app_name">QR Scanner and Whatscan</string>
+    <string name="facebook_app_id">305080584070923</string>
 </resources>

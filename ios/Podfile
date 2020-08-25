@@ -1,8 +1,11 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'WScan' do
-  # Pods for WScan
+target 'QRScannerandWhatscan' do
+  # Pods for QRScannerandWhatscan
+
+  pod 'ReactNativeAdsFacebook', :path => '../node_modules/react-native-fbads'
+  pod 'FBAudienceNetwork', '~> 5.1.0'
   pod 'Google-Mobile-Ads-SDK'
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
@@ -42,7 +45,7 @@ target 'WScan' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  target 'WScanTests' do
+  target 'QRScannerandWhatscanTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -50,10 +53,10 @@ target 'WScan' do
   use_native_modules!
 end
 
-target 'WScan-tvOS' do
-  # Pods for WScan-tvOS
+target 'QRScannerandWhatscan-tvOS' do
+  # Pods for QRScannerandWhatscan-tvOS
 
-  target 'WScan-tvOSTests' do
+  target 'QRScannerandWhatscan-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

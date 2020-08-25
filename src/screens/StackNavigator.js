@@ -4,6 +4,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import Home from './Home';
 import QRScan from './QRScan';
 import WhatScan from './WhatScan';
+import DChat from './DChat';
+import QRGen from './QRGen';
 import PrivacyPolicy from './PrivacyPolicy';
 import RateUs from './RateUs';
 import Share from './Share';
@@ -20,6 +22,18 @@ const AppNavigator = createStackNavigator(
     },
     WhatScan: {
       screen: WhatScan,
+      navigationOptions: () => ({
+        headerShown: false,
+      }),
+    },
+    DChat: {
+      screen: DChat,
+      navigationOptions: () => ({
+        headerShown: false,
+      }),
+    },
+    QRGen: {
+      screen: QRGen,
       navigationOptions: () => ({
         headerShown: false,
       }),

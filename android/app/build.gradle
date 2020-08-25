@@ -95,7 +95,7 @@ def enableSeparateBuildPerCPUArchitecture = true    //False Earlier
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = true    //false earlier
+def enableProguardInReleaseBuilds = false   //false earlier
 
 /**
  * The preferred build flavor of JavaScriptCore.
@@ -128,11 +128,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.wscan"
+        applicationId "com.quarantine.qrscanner.whatscan"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 5
+        versionName "1.0.5"
         missingDimensionStrategy 'react-native-camera', 'general'
         
     }
@@ -151,6 +151,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
     }
     buildTypes {
         debug {
@@ -159,7 +167,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -185,6 +193,11 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
+// fb ads
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'//fbads
+    implementation 'com.android.support:support-annotations:28.0.0' // Required Dependency by Audience Network SDK
+    implementation 'com.facebook.android:audience-network-sdk:5.+'
+    
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
         debugImplementation files(hermesPath + "hermes-debug.aar")

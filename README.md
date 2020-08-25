@@ -1,2 +1,3 @@
-# Admob-Integration-Practice-React-Native-App
-This Application has been made on React-Native CLI. And In this App react-native-admob module has been integrated.
+# react-native-admob and react-native-fbads Intergration
+
+This Application has been developed on React-Native CLI. In this App 2 major modules react-native-admob and react-native-fbads have been integrated. If you are facing any difficulity in integrating these modules this project could be a great help for you. Cheers!
